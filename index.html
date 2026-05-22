@@ -7,24 +7,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <input type="checkbox" id="modalToggle" style="display:none;">
+    <input type="radio" name="tab" id="tabBuyer" checked style="display:none;">
+    <input type="radio" name="tab" id="tabSeller" style="display:none;">
+
     <header>
         <div class="logo">Stationery Market</div>
-
         <nav>
             <a href="#">Главная</a>
             <a href="catalog.html">Каталог</a>
             <a href="#">Продавцам</a>
             <a href="#">Контакты</a>
         </nav>
-
-            <button class="login">Войти</button>
-            <div class="more-wrap" tabindex="0">
-                <button class="more-btn">···</button>
-                <div class="dropdown">
-                    <a href="#">Стать продавцом</a>
-                    <a href="#">Возможности продавца</a>
-                    <a href="#">Посмотреть каталог</a>
-                </div>
+        <label class="login" for="modalToggle">Войти</label>
+        <div class="more-wrap" tabindex="0">
+            <button class="more-btn">···</button>
+            <div class="dropdown">
+                <a href="#">Стать продавцом</a>
+                <a href="#">Возможности продавца</a>
+                <a href="#">Посмотреть каталог</a>
             </div>
         </div>
     </header>
@@ -35,7 +37,6 @@
             <p>Покупайте канцтовары по выгодным ценам
                 или продавайте свои товары на маркетплейсе.</p>
         </div>
-
         <div class="hero-image">
             <img src="" alt="">
         </div>
@@ -44,11 +45,9 @@
     <section class="roles">
         <div class="card buyer">
             <h2>Покупателям</h2>
-            <p>Качественный товары для для комфортной работы.</p>
+            <p>Качественный товары для комфортной работы.</p>
             <button>Перейти</button>
         </div>
-
-
         <div class="card seller-card">
             <h2>Продавцам</h2>
             <p>Продажа канцелярских товаров по выгодным ценам.</p>
@@ -67,22 +66,79 @@
             <div class="category">Папки</div>
         </div>
     </section>
-    <footer>
 
+    <footer>
         <div>
             <h3>Покупатели</h3>
             <p>Каталог</p>
             <p>Доставка</p>
             <p>Оплата</p>
-
+        </div>
         <div>
             <h3>Контакты</h3>
             <p>info@stationerymarket.kz</p>
             <p>+7 (727) 123-45-67</p>
         </div>
-            </div>
-        </div>
     </footer>
-    
+
+    <!-- МОДАЛЬНОЕ ОКНО -->
+    <div class="modal-overlay">
+        <label class="modal-bg" for="modalToggle"></label>
+        <div class="modal-box">
+
+            <!-- Панель: Вход (показывается по умолчанию) -->
+            <div class="modal-login" id="panelLogin">
+                <label class="modal-close" for="modalToggle">✕</label>
+                <h2>Войти</h2>
+                <p class="modal-sub">Введите данные для входа</p>
+                <label>Логин</label>
+                <input type="text" placeholder="ваш_логин">
+                <label>Пароль</label>
+                <input type="password" placeholder="••••••••">
+                <button class="modal-btn">Войти</button>
+                <div class="modal-divider">— или —</div>
+                <a class="modal-reg-link" href="#panelReg">Регистрация</a>
+            </div>
+
+            <!-- Панель: Регистрация -->
+            <div class="modal-reg" id="panelReg">
+                <label class="modal-close" for="modalToggle">✕</label>
+                <h2>Регистрация</h2>
+                <p class="modal-sub">Создайте аккаунт</p>
+
+                <div class="modal-tabs">
+                    <label class="modal-tab" for="tabBuyer">🛍 Покупатель</label>
+                    <label class="modal-tab" for="tabSeller">🏪 Продавец</label>
+                </div>
+
+                <div class="form-buyer">
+                    <span class="modal-badge">Покупатель</span>
+                    <label>Имя</label>
+                    <input type="text" placeholder="Ваше имя">
+                    <label>Email</label>
+                    <input type="email" placeholder="email@example.com">
+                    <label>Пароль</label>
+                    <input type="password" placeholder="••••••••">
+                    <button class="modal-btn">Зарегистрироваться</button>
+                </div>
+
+                <div class="form-seller">
+                    <span class="modal-badge" style="background:#fef3c7;color:#92400e;">Продавец</span>
+                    <label>Название магазина</label>
+                    <input type="text" placeholder="Мой магазин">
+                    <label>Email</label>
+                    <input type="email" placeholder="email@example.com">
+                    <label>Пароль</label>
+                    <input type="password" placeholder="••••••••">
+                    <button class="modal-btn" style="background:#f59e0b;">Зарегистрироваться</button>
+                </div>
+
+                <div class="modal-divider"></div>
+                <a class="modal-reg-link" href="#panelLogin">← Уже есть аккаунт? Войти</a>
+            </div>
+
+        </div>
+    </div>
+
 </body>
 </html>
