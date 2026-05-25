@@ -103,3 +103,27 @@ font-size:32px;
 }
 
 }
+.cart-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    background: #111827;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.cart-link:hover {
+    background: #1f2937;
+}
+.cart-count {
+    background: #ef4444;
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 20px;
+}

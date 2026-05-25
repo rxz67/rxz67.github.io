@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stationery Market - Корзина</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">🛒 Корзина</div>
+        <div class="header-btns">
+            <a href="catalog.html"><button class="back-btn">← Каталог</button></a>
+            <a href="index.html"><button class="home-btn">🏠 Главная</button></a>
+        </div>
+    </header>
+
+    <div class="cart-wrap">
+
+        <div class="cart-list" id="cartList"></div>
+
+        <div class="cart-sidebar">
+            <div class="cart-total-box">
+                <h2>Итого</h2>
+                <div class="total-row">
+                    <span>Товаров:</span>
+                    <span id="totalQty">0</span>
+                </div>
+                <div class="total-row total-price">
+                    <span>Сумма:</span>
+                    <span id="totalPrice">0 тг</span>
+                </div>
+                <button class="checkout-btn">Оформить заказ</button>
+                <button class="clear-btn" id="clearBtn">Очистить корзину</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="empty-state" id="emptyState" style="display:none;">
+        <div class="empty-icon">🛒</div>
+        <h2>Корзина пуста</h2>
+        <p>Добавьте товары из каталога</p>
+        <a href="catalog.html"><button class="go-catalog-btn">Перейти в каталог</button></a>
+    </div>
+    <script src="cart.js"></script>
+</body>
+</html>

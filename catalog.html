@@ -7,49 +7,53 @@
     <link rel="stylesheet" href="catalog.css">
 </head>
 <body>
-
     <header>
         <h1>Каталог товаров</h1>
-        <a href="index.html">
-            <button>Назад</button>
-        </a>
+        <div style="display:flex; gap:12px; align-items:center;">
+            <a href="index.html"><button>Назад</button></a>
+            <a href="cart.html" class="cart-link">🛒 Корзина <span class="cart-count" id="cartCount">0</span></a>
+        </div>
     </header>
+
     <section class="products">
         <div class="product-card">
-            <img src="img/p2xkvrxjjoyqxgyn7vlqyecd6uqgcyab.jpg" alt="">
+            <img src="img/Ручки.jpg" alt="">
             <h2>Набор ручек</h2>
             <p>от 1200 тг</p>
-            <button>Купить</button>
+            <button class="buy-btn" data-name="Набор ручек" data-price="1200">Купить</button>
         </div>
         <div class="product-card">
-            <img src="img/099-5882-330x330.jpg" alt="">
+            <img src="img/Тетради.jpg" alt="">
             <h2>Набор тетрадей</h2>
             <p>от 900 тг</p>
-            <button>Купить</button>
+            <button class="buy-btn" data-name="Набор тетрадей" data-price="900">Купить</button>
         </div>
         <div class="product-card">
-            <img src="img/044-91558-330x330.jpg" alt="">
+            <img src="img/Карандаши.jpg" alt="">
             <h2>Карандаши цветные</h2>
             <p>от 700 тг</p>
-            <button>Купить</button>
+            <button class="buy-btn" data-name="Карандаши цветные" data-price="700">Купить</button>
         </div>
         <div class="product-card">
-            <img src="img/1.webp" alt="">
+            <img src="img/Маркеры.webp" alt="">
             <h2>Набор маркеров</h2>
             <p>от 3000 тг</p>
-            <button>Купить</button>
+            <button class="buy-btn" data-name="Набор маркеров" data-price="3000">Купить</button>
         </div>
         <div class="product-card">
-            <img src="img/201378851_w1280_h640_201378851.webp" alt="">
+            <img src="img/Бумага.webp" alt="">
             <h2>Бумага</h2>
             <p>от 2000 тг</p>
-            <button>Купить</button>
+            <button class="buy-btn" data-name="Бумага" data-price="2000">Купить</button>
         </div>
         <div class="product-card">
-            <img src="img/044-91198-330x330.jpg" alt="">
+            <img src="img/Папки.jpg" alt="">
             <h2>Папки</h2>
             <p>от 700 тг</p>
-            <button>Купить</button>
+            <button class="buy-btn" data-name="Папки" data-price="700">Купить</button>
+        </div>
     </section>
+
+    <script src="catalog.js"></script>
 </body>
 </html>

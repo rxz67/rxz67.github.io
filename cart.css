@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f7fb;
+    color: #111827;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: #ffffff;
+    box-shadow: 0 2px 9px rgba(0,0,0,.05);
+    margin-bottom: 40px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.header-btns {
+    display: flex;
+    gap: 12px;
+}
+
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    background: #2563eb;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+.back-btn {
+    background: #f3f4f6;
+    color: #111827;
+}
+.back-btn:hover {
+    background: #e5e7eb;
+}
+
+.home-btn {
+    background: #111827;
+}
+.home-btn:hover {
+    background: #1f2937;
+}
+
+/* Корзина */
+.cart-wrap {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 24px;
+    padding: 0 60px 60px;
+    align-items: start;
+}
+
+.cart-list {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 28px;
+    border-bottom: 1px solid #f3f4f6;
+    transition: 0.2s;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item:hover {
+    background: #f9fafb;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.item-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.item-price {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.item-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.qty-btn {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    font-size: 18px;
+    border-radius: 8px;
+    background: #f3f4f6;
+    color: #111827;
+}
+.qty-btn:hover {
+    background: #e5e7eb;
+    transform: none;
+}
+
+.qty {
+    font-size: 18px;
+    font-weight: 700;
+    min-width: 28px;
+    text-align: center;
+}
+
+.item-total {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2563eb;
+    min-width: 90px;
+    text-align: right;
+}
+
+.remove-btn {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    font-size: 14px;
+    border-radius: 8px;
+    background: #fee2e2;
+    color: #ef4444;
+}
+.remove-btn:hover {
+    background: #fecaca;
+    transform: none;
+}
+
+/* Сайдбар итого */
+.cart-sidebar {
+    position: sticky;
+    top: 20px;
+}
+
+.cart-total-box {
+    background: white;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.cart-total-box h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #111827;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #6b7280;
+    margin-bottom: 12px;
+}
+
+.total-price {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+    padding-top: 12px;
+    border-top: 1px solid #f3f4f6;
+    margin-top: 8px;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 12px;
+    background: #16a34a;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.checkout-btn:hover {
+    background: #15803d;
+}
+
+.clear-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 12px;
+    background: #f3f4f6;
+    color: #6b7280;
+}
+.clear-btn:hover {
+    background: #e5e7eb;
+    transform: none;
+}
+
+/* Пустая корзина */
+.empty-state {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    text-align: center;
+    gap: 16px;
+}
+
+.empty-icon {
+    font-size: 80px;
+}
+
+.empty-state h2 {
+    font-size: 32px;
+    color: #111827;
+}
+
+.empty-state p {
+    font-size: 18px;
+    color: #6b7280;
+}
+
+.go-catalog-btn {
+    margin-top: 8px;
+    padding: 14px 32px;
+    font-size: 16px;
+    border-radius: 12px;
+}

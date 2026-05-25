@@ -9,22 +9,25 @@
 <body>
 
     <header>
-        <div class="logo">Stationery Market</div>
-        <nav>
-            <a href="#">Главная</a>
-            <a href="catalog.html">Каталог</a>
-            <a href="#">Продавцам</a>
-            <a href="#">Контакты</a>
-        </nav>
-        <button class="login" id="openModal">Войти</button>
-        <div class="more-wrap" tabindex="0">
-            <button class="more-btn">···</button>
-            <div class="dropdown">
-                <a href="#">Стать продавцом</a>
-                <a href="#">Возможности продавца</a>
-                <a href="#">Посмотреть каталог</a>
-            </div>
+        <header>
+    <div class="logo">Stationery Market</div>
+    <nav>
+        <a href="#">Главная</a>
+        <a href="catalog.html">Каталог</a>
+        <a href="#">Продавцам</a>
+        <a href="#">Контакты</a>
+    </nav>
+    <button class="login" id="openModal">Войти</button>
+    <a href="cart.html"><button class="cart-btn">Корзина</button></a>
+    <div class="more-wrap" tabindex="0">
+        <button class="more-btn">···</button>
+        <div class="dropdown">
+            <a href="#">Стать продавцом</a>
+            <a href="#">Возможности продавца</a>
+            <a href="#">Посмотреть каталог</a>
         </div>
+    </div>
+</header>
     </header>
 
     <section class="hero">
@@ -100,8 +103,8 @@
                 <p class="modal-sub">Создайте аккаунт</p>
 
                 <div class="modal-tabs">
-                    <button class="modal-tab active" id="tabBuyerBtn">🛍 Покупатель</button>
-                    <button class="modal-tab" id="tabSellerBtn">🏪 Продавец</button>
+                    <button class="modal-tab active" id="tabBuyerBtn">Покупатель</button>
+                    <button class="modal-tab" id="tabSellerBtn">Продавец</button>
                 </div>
 
                 <div id="formBuyer">
@@ -133,7 +136,7 @@
 
             <div class="modal-panel" id="panelProfile" style="display:none;">
                 <button class="modal-close" id="closeProfile">✕</button>
-                <div class="profile-avatar" id="profileAvatar">👤</div>
+                <div class="profile-avatar" id="profileAvatar"></div>
                 <h2 id="profileName">Имя</h2>
                 <p class="modal-sub" id="profileRole">Роль</p>
                 <div class="profile-badge" id="profileBadge"></div>
