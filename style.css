@@ -453,3 +453,80 @@ footer p{
 #tabSeller:checked ~ .modal-overlay .form-seller { display: block; }
 #tabBuyer:checked  ~ .modal-overlay .form-buyer  { display: block; }
 #tabBuyer:checked  ~ .modal-overlay .form-seller { display: none; }
+
+/* ===== МОДАЛЬНОЕ ОКНО ===== */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+.modal-overlay.open {
+    display: flex;
+}
+.modal-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    cursor: pointer;
+}
+.modal-box {
+    background: #fff;
+    border-radius: 16px;
+    padding: 36px 32px 28px;
+    width: 360px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+.modal-close {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    font-size: 20px;
+    color: #9ca3af;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    transform: none;
+}
+.modal-close:hover {
+    color: #111827;
+    transform: none;
+}
+.modal-box h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 4px;
+}
+.modal-sub {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 20px;
+}
+.modal-box label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    display: block;
+    margin-bottom: 4px;
+}
+.modal-box input[type=text],
+.modal-box input[type=email],
+.modal-box input[type=password] {
+
+
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #111827;
+}

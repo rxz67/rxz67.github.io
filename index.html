@@ -8,10 +8,6 @@
 </head>
 <body>
 
-    <input type="checkbox" id="modalToggle" style="display:none;">
-    <input type="radio" name="tab" id="tabBuyer" checked style="display:none;">
-    <input type="radio" name="tab" id="tabSeller" style="display:none;">
-
     <header>
         <div class="logo">Stationery Market</div>
         <nav>
@@ -20,7 +16,7 @@
             <a href="#">Продавцам</a>
             <a href="#">Контакты</a>
         </nav>
-        <label class="login" for="modalToggle">Войти</label>
+        <button class="login" id="openModal">Войти</button>
         <div class="more-wrap" tabindex="0">
             <button class="more-btn">···</button>
             <div class="dropdown">
@@ -81,60 +77,72 @@
         </div>
     </footer>
 
-    <div class="modal-overlay">
-        <label class="modal-bg" for="modalToggle"></label>
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-bg" id="modalBg"></div>
         <div class="modal-box">
 
-            <div class="modal-login" id="panelLogin">
-                <label class="modal-close" for="modalToggle">✕</label>
+            <div class="modal-panel" id="panelLogin">
+                <button class="modal-close" id="closeLogin">✕</button>
                 <h2>Войти</h2>
                 <p class="modal-sub">Введите данные для входа</p>
                 <label>Логин</label>
-                <input type="text" placeholder="ваш_логин">
+                <input type="text" id="loginUsername" placeholder="ваш_логин">
                 <label>Пароль</label>
-                <input type="password" placeholder="••••••••">
-                <button class="modal-btn">Войти</button>
+                <input type="password" id="loginPassword" placeholder="••••••••">
+                <p class="modal-error" id="loginError"></p>
+                <button class="modal-btn" id="loginBtn">Войти</button>
                 <div class="modal-divider">— или —</div>
-                <a class="modal-reg-link" href="#panelReg">Регистрация</a>
+                <a class="modal-reg-link" id="goToReg">Регистрация</a>
             </div>
-            <div class="modal-reg" id="panelReg">
-                <label class="modal-close" for="modalToggle">✕</label>
+            <div class="modal-panel" id="panelReg" style="display:none;">
+                <button class="modal-close" id="closeReg">✕</button>
                 <h2>Регистрация</h2>
                 <p class="modal-sub">Создайте аккаунт</p>
 
                 <div class="modal-tabs">
-                    <label class="modal-tab" for="tabBuyer">Покупатель</label>
-                    <label class="modal-tab" for="tabSeller">Продавец</label>
+                    <button class="modal-tab active" id="tabBuyerBtn">🛍 Покупатель</button>
+                    <button class="modal-tab" id="tabSellerBtn">🏪 Продавец</button>
                 </div>
 
-                <div class="form-buyer">
+                <div id="formBuyer">
                     <span class="modal-badge">Покупатель</span>
                     <label>Имя</label>
-                    <input type="text" placeholder="Ваше имя">
-                    <label>Email</label>
-                    <input type="email" placeholder="email@example.com">
+                    <input type="text" id="regName" placeholder="Ваше имя">
+                    <label>Логин</label>
+                    <input type="text" id="regUsername" placeholder="ваш_логин">
                     <label>Пароль</label>
-                    <input type="password" placeholder="••••••••">
-                    <button class="modal-btn">Зарегистрироваться</button>
+                    <input type="password" id="regPassword" placeholder="••••••••">
+                    <p class="modal-error" id="regError"></p>
+                    <button class="modal-btn" id="regBuyerBtn">Зарегистрироваться</button>
                 </div>
-
-                <div class="form-seller">
+                <div id="formSeller" style="display:none;">
                     <span class="modal-badge" style="background:#fef3c7;color:#92400e;">Продавец</span>
                     <label>Название магазина</label>
-                    <input type="text" placeholder="Мой магазин">
-                    <label>Email</label>
-                    <input type="email" placeholder="email@example.com">
+                    <input type="text" id="regShop" placeholder="Мой магазин">
+                    <label>Логин</label>
+                    <input type="text" id="regSellerUsername" placeholder="ваш_логин">
                     <label>Пароль</label>
-                    <input type="password" placeholder="••••••••">
-                    <button class="modal-btn" style="background:#f59e0b;">Зарегистрироваться</button>
+                    <input type="password" id="regSellerPassword" placeholder="••••••••">
+                    <p class="modal-error" id="regSellerError"></p>
+                    <button class="modal-btn" id="regSellerBtn" style="background:#f59e0b;">Зарегистрироваться</button>
                 </div>
 
                 <div class="modal-divider"></div>
-                <a class="modal-reg-link" href="#panelLogin">← Уже есть аккаунт? Войти</a>
+                <a class="modal-reg-link" id="goToLogin">← Уже есть аккаунт? Войти</a>
+            </div>
+
+            <div class="modal-panel" id="panelProfile" style="display:none;">
+                <button class="modal-close" id="closeProfile">✕</button>
+                <div class="profile-avatar" id="profileAvatar">👤</div>
+                <h2 id="profileName">Имя</h2>
+                <p class="modal-sub" id="profileRole">Роль</p>
+                <div class="profile-badge" id="profileBadge"></div>
+                <button class="modal-btn logout-btn" id="logoutBtn">Выйти из аккаунта</button>
             </div>
 
         </div>
     </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
