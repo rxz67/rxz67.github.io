@@ -4,6 +4,18 @@ function saveCart() {
     localStorage.setItem('sm_cart', JSON.stringify(cart));
 }
 
+function getOrders() {
+    return JSON.parse(localStorage.getItem('sm_orders') || '[]');
+}
+
+function saveOrders(orders) {
+    localStorage.setItem('sm_orders', JSON.stringify(orders));
+}
+
+function generateCode() {
+    return 'ORD-' + Date.now().toString().slice(-6);
+}
+
 function render() {
     const list       = document.getElementById('cartList');
     const empty      = document.getElementById('emptyState');
@@ -59,6 +71,36 @@ function remove(idx) {
 document.getElementById('clearBtn').addEventListener('click', () => {
     cart.length = 0;
     saveCart();
+    render();
+});
+
+document.getElementById('checkoutBtn').addEventListener('click', () => {
+    if (cart.length === 0) return;
+
+    const currentUser = localStorage.getItem('sm_current');
+    if (!currentUser) {
+        alert('Войдите в аккаунт чтобы оформить заказ');
+        return;
+    }
+
+    const code   = generateCode();
+    const orders = getOrders();
+    const order  = {
+        code,
+        buyer: currentUser,
+        items: [...cart],
+        total: cart.reduce((s, i) => s + i.price * i.qty, 0),
+        status: 'Новый',
+        date: new Date().toLocaleString('ru')
+    };
+
+    orders.push(order);
+    saveOrders(orders);
+
+    cart.length = 0;
+    saveCart();
+
+    alert(`Заказ оформлен!\nВаш код: #${code}`);
     render();
 });
 

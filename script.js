@@ -18,9 +18,9 @@ function logout() {
     localStorage.removeItem('sm_current');
 }
 
-const overlay   = document.getElementById('modalOverlay');
-const modalBg   = document.getElementById('modalBg');
-const openBtn   = document.getElementById('openModal');
+const overlay      = document.getElementById('modalOverlay');
+const modalBg      = document.getElementById('modalBg');
+const openBtn      = document.getElementById('openModal');
 const panelLogin   = document.getElementById('panelLogin');
 const panelReg     = document.getElementById('panelReg');
 const panelProfile = document.getElementById('panelProfile');
@@ -46,6 +46,14 @@ function closeModal() {
     overlay.classList.remove('open');
 }
 
+function shipOrder(idx) {
+    const orders = JSON.parse(localStorage.getItem('sm_orders') || '[]');
+    orders[idx].status = 'Отправлен';
+    localStorage.setItem('sm_orders', JSON.stringify(orders));
+    const user = getCurrentUser();
+    updateProfilePanel(user);
+}
+
 function updateProfilePanel(user) {
     document.getElementById('profileName').textContent = user.name;
     document.getElementById('profileRole').textContent =
@@ -54,6 +62,46 @@ function updateProfilePanel(user) {
         user.role === 'buyer' ? '🛍 Покупатель' : '🏪 Продавец';
     document.getElementById('profileBadge').className =
         'profile-badge ' + (user.role === 'buyer' ? 'badge-buyer' : 'badge-seller');
+
+    const orders  = JSON.parse(localStorage.getItem('sm_orders') || '[]');
+    const ordersBox = document.getElementById('ordersBox');
+
+    if (user.role === 'buyer') {
+        const myOrders = orders.filter(o => o.buyer === user.username);
+        if (myOrders.length === 0) {
+            ordersBox.innerHTML = '<p class="no-orders">Заказов пока нет</p>';
+        } else {
+            ordersBox.innerHTML = myOrders.map(o => `
+                <div class="order-item">
+                    <div class="order-header">
+                        <span class="order-code">#${o.code}</span>
+                        <span class="order-status status-${o.status === 'Новый' ? 'new' : o.status === 'В сборке' ? 'assembly' : 'sent'}">${o.status}</span>
+                    </div>
+                    <div class="order-goods">${o.items.map(i => `${i.name} × ${i.qty}`).join(', ')}</div>
+                    <div class="order-total">${o.total.toLocaleString()} тг</div>
+                    <div class="order-date">${o.date}</div>
+                </div>
+            `).join('');
+        }
+    } else {
+        if (orders.length === 0) {
+            ordersBox.innerHTML = '<p class="no-orders">Заказов пока нет</p>';
+        } else {
+            ordersBox.innerHTML = orders.map((o, idx) => `
+                <div class="order-item">
+                    <div class="order-header">
+                        <span class="order-code">#${o.code}</span>
+                        <span class="order-status status-${o.status === 'Новый' ? 'new' : o.status === 'В сборке' ? 'assembly' : 'sent'}">${o.status}</span>
+                    </div>
+                    <div class="order-buyer">👤 ${o.buyer}</div>
+                    <div class="order-goods">${o.items.map(i => `${i.name} × ${i.qty}`).join(', ')}</div>
+                    <div class="order-total">${o.total.toLocaleString()} тг</div>
+                    <div class="order-date">${o.date}</div>
+                    ${o.status !== 'Отправлен' ? `<button class="ship-btn" onclick="shipOrder(${idx})">📦 Передать на отправку</button>` : '<p class="shipped-label">✅ Отправлен</p>'}
+                </div>
+            `).join('');
+        }
+    }
 }
 
 function updateHeaderBtn() {
@@ -82,6 +130,7 @@ document.getElementById('tabBuyerBtn').addEventListener('click', () => {
     document.getElementById('tabBuyerBtn').classList.add('active');
     document.getElementById('tabSellerBtn').classList.remove('active');
 });
+
 document.getElementById('tabSellerBtn').addEventListener('click', () => {
     document.getElementById('formBuyer').style.display = 'none';
     document.getElementById('formSeller').style.display = 'block';
