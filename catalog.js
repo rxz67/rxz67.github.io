@@ -23,7 +23,14 @@ document.querySelectorAll('.buy-btn').forEach(btn => {
         }
 
         saveCart();
-        window.location = 'cart.html';
+        updateCartCount();
+
+        btn.textContent = '✓ Добавлено';
+        btn.style.background = '#16a34a';
+        setTimeout(() => {
+            btn.textContent = 'Купить';
+            btn.style.background = '';
+        }, 1000);
     });
 });
 
