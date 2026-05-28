@@ -59,7 +59,7 @@ function updateProfilePanel(user) {
     document.getElementById('profileRole').textContent =
         user.role === 'buyer' ? 'Покупатель' : 'Продавец';
     document.getElementById('profileBadge').textContent =
-        user.role === 'buyer' ? '🛍 Покупатель' : '🏪 Продавец';
+        user.role === 'buyer' ? '🛍 Покупатель' : 'Продавец';
     document.getElementById('profileBadge').className =
         'profile-badge ' + (user.role === 'buyer' ? 'badge-buyer' : 'badge-seller');
 
