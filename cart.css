@@ -62,7 +62,6 @@ button:hover {
     background: #1f2937;
 }
 
-/* Корзина */
 .cart-wrap {
     display: grid;
     grid-template-columns: 1fr 320px;
@@ -161,7 +160,6 @@ button:hover {
     transform: none;
 }
 
-/* Сайдбар итого */
 .cart-sidebar {
     position: sticky;
     top: 20px;
@@ -224,7 +222,6 @@ button:hover {
     transform: none;
 }
 
-/* Пустая корзина */
 .empty-state {
     flex-direction: column;
     align-items: center;
