@@ -77,7 +77,15 @@ function updateProfilePanel(user) {
                         <span class="order-code">#${o.code}</span>
                         <span class="order-status status-${o.status === 'Новый' ? 'new' : o.status === 'В сборке' ? 'assembly' : 'sent'}">${o.status}</span>
                     </div>
-                    <div class="order-goods">${o.items.map(i => `${i.name} × ${i.qty}`).join(', ')}</div>
+                    <div class="order-goods">
+                    ${o.items.map(i => `
+                        <div style="margin-bottom:8px;">
+                            📦 ${i.name} × ${i.qty}
+                            <br>
+                            🏪 Магазин: ${i.seller || 'Stationery Market'}
+                        </div>
+                    `).join('')}
+                    </div>
                     <div class="order-total">${o.total.toLocaleString()} тг</div>
                     <div class="order-date">${o.date}</div>
                 </div>
@@ -94,7 +102,15 @@ function updateProfilePanel(user) {
                         <span class="order-status status-${o.status === 'Новый' ? 'new' : o.status === 'В сборке' ? 'assembly' : 'sent'}">${o.status}</span>
                     </div>
                     <div class="order-buyer">👤 ${o.buyer}</div>
-                    <div class="order-goods">${o.items.map(i => `${i.name} × ${i.qty}`).join(', ')}</div>
+                    <div class="order-goods">
+                    ${o.items.map(i => `
+                        <div style="margin-bottom:8px;">
+                            📦 ${i.name} × ${i.qty}
+                            <br>
+                            🏪 Магазин: ${i.seller || 'Stationery Market'}
+                        </div>
+                    `).join('')}
+                    </div>
                     <div class="order-total">${o.total.toLocaleString()} тг</div>
                     <div class="order-date">${o.date}</div>
                     ${o.status !== 'Отправлен' ? `<button class="ship-btn" onclick="shipOrder(${idx})">📦 Передать на отправку</button>` : '<p class="shipped-label">✅ Отправлен</p>'}

@@ -19,7 +19,12 @@ document.querySelectorAll('.buy-btn').forEach(btn => {
         if (existing) {
             existing.qty++;
         } else {
-            cart.push({ name, price, qty: 1 });
+            const currentUser = localStorage.getItem('sm_current');
+            cart.push({
+                name,
+                price,
+                seller: currentUser,
+                qty: 1});
         }
 
         saveCart();
