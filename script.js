@@ -82,7 +82,7 @@ function updateProfilePanel(user) {
                         <div style="margin-bottom:8px;">
                             📦 ${i.name} × ${i.qty}
                             <br>
-                            🏪 Магазин: ${i.seller || 'Stationery Market'}
+                            Продавец: ${i.seller || 'Stationery Market'}
                         </div>
                     `).join('')}
                     </div>
@@ -107,7 +107,7 @@ function updateProfilePanel(user) {
                         <div style="margin-bottom:8px;">
                             📦 ${i.name} × ${i.qty}
                             <br>
-                            🏪 Магазин: ${i.seller || 'Stationery Market'}
+                            🕒 Продавец: ${i.seller || 'Stationery Market'}
                         </div>
                     `).join('')}
                     </div>

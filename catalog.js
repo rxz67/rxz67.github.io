@@ -12,19 +12,15 @@ function updateCartCount() {
 
 document.querySelectorAll('.buy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-        const name  = btn.dataset.name;
-        const price = parseInt(btn.dataset.price);
+        const name   = btn.dataset.name;
+        const price  = parseInt(btn.dataset.price);
+        const seller = btn.dataset.seller || 'Stationery Market';
 
         const existing = cart.find(i => i.name === name);
         if (existing) {
             existing.qty++;
         } else {
-            const currentUser = localStorage.getItem('sm_current');
-            cart.push({
-                name,
-                price,
-                seller: currentUser,
-                qty: 1});
+            cart.push({ name, price, qty: 1, seller });
         }
 
         saveCart();
