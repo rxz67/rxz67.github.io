@@ -46,6 +46,19 @@ function closeModal() {
     overlay.classList.remove('open');
 }
 
+function goToSeller() {
+    const user = getCurrentUser();
+    if (!user) {
+        alert('Войдите в аккаунт продавца');
+        return;
+    }
+    if (user.role !== 'seller') {
+        alert('Эта страница только для продавцов. Зарегистрируйтесь как продавец.');
+        return;
+    }
+    window.location = 'seller.html';
+}
+
 function shipOrder(idx) {
     const orders = JSON.parse(localStorage.getItem('sm_orders') || '[]');
     orders[idx].status = 'Отправлен';

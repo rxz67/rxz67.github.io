@@ -14,18 +14,19 @@
     <nav>
         <a href="#">Главная</a>
         <a href="catalog.html">Каталог</a>
-        <a href="#">Продавцам</a>
-        <a href="#">Контакты</a>
+        <a href="#" onclick="goToSeller()">Продавцам</a>
+        <a href="#footer">Контакты</a>
     </nav>
     <button class="login" id="openModal">Войти</button>
     <a href="cart.html"><button class="cart-btn">Корзина</button></a>
     <div class="more-wrap" tabindex="0">
         <button class="more-btn">···</button>
-        <div class="dropdown">
-            <a href="#">Стать продавцом</a>
-            <a href="#">Возможности продавца</a>
-            <a href="#">Посмотреть каталог</a>
-            <a href="seller.html">Кабинет продавца</a>
+            <div class="dropdown">
+                <a href="#" onclick="goToSeller()">Стать продавцом</a>
+                <a href="#" onclick="goToSeller()">Возможности продавца</a>
+                <a href="catalog.html">Посмотреть каталог</a>
+                <a href="#" onclick="goToSeller()">Кабинет продавца</a>
+</div>
         </div>
     </div>
 </header>
@@ -46,24 +47,24 @@
         <div class="card buyer">
             <h2>Покупателям</h2>
             <p>Качественный товары для комфортной работы.</p>
-            <button>Перейти</button>
+            <a href="catalog.html"><button>Перейти</button></a>
         </div>
         <div class="card seller-card">
             <h2>Продавцам</h2>
             <p>Продажа канцелярских товаров по выгодным ценам.</p>
-            <button>Начать продажу</button>
+            <button onclick="goToSeller()">Начать продажу</button>
         </div>
     </section>
 
     <section class="categories">
         <h2>Популярные категории</h2>
         <div class="grid">
-            <div class="category">Ручки</div>
-            <div class="category">Тетради</div>
-            <div class="category">Карандаши</div>
-            <div class="category">Маркеры</div>
-            <div class="category">Бумага</div>
-            <div class="category">Папки</div>
+            <a href="catalog.html"><div class="category">Ручки</div></a>
+            <a href="catalog.html"><div class="category">Тетради</div></a>
+            <a href="catalog.html"><div class="category">Карандаши</div></a>
+            <a href="catalog.html"><div class="category">Маркеры</div></a>
+            <a href="catalog.html"><div class="category">Бумага</div></a>
+            <a href="catalog.html"><div class="category">Папки</div></a>
         </div>
     </section>
 
@@ -78,6 +79,7 @@
             <h3>Контакты</h3>
             <p>info@stationerymarket.kz</p>
             <p>+7 (727) 123-45-67</p>
+            <footer id="footer"></footer>
         </div>
     </footer>
 

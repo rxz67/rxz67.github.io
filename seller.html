@@ -12,43 +12,41 @@
         <div class="logo">Кабинет продавца</div>
         <a href="index.html"><button class="back-btn">← Главная</button></a>
     </header>
+
     <section class="section">
-    <h2>Добавить товар</h2>
-
-    <div class="add-product-card">
-
-        <div class="form-group">
-            <label>Название товара</label>
-            <input type="text" id="productName" placeholder="Например: Набор ручек">
+        <h2>Добавить товар</h2>
+        <div class="add-product-card">
+            <div class="form-group">
+                <label>Название товара</label>
+                <input type="text" id="productName" placeholder="Например: Степлер">
+            </div>
+            <div class="form-group">
+                <label>Цена</label>
+                <input type="number" id="productPrice" placeholder="1200">
+            </div>
+            <div class="form-group">
+                <label>Количество</label>
+                <input type="number" id="productQty" placeholder="10">
+            </div>
+            <div class="form-group">
+                <label>Изображение</label>
+                <input type="file" id="productImage" accept="image/*">
+                <div class="image-preview" id="imagePreview"></div>
+            </div>
+            <p class="form-error" id="productError"></p>
+            <button id="addProductBtn" class="add-product-btn">Добавить товар</button>
         </div>
+    </section>
 
-        <div class="form-group">
-            <label>Цена</label>
-            <input type="number" id="productPrice" placeholder="1200">
-        </div>
-
-        <div class="form-group">
-            <label>Изображение</label>
-            <input type="text" id="productImage" placeholder="img/Ручки.jpg">
-        </div>
-
-        <button id="addProductBtn" class="add-product-btn">
-            Добавить товар
-        </button>
-
-    </div>
-</section>
     <div class="container">
         <section class="section">
             <h2>Склад</h2>
             <div class="stock-grid" id="stockGrid"></div>
         </section>
-
         <section class="section">
             <h2>Заказы</h2>
             <div class="orders-list" id="ordersList"></div>
         </section>
-
     </div>
 
     <script src="seller.js"></script>

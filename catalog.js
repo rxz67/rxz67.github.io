@@ -26,7 +26,7 @@ document.querySelectorAll('.buy-btn').forEach(btn => {
         saveCart();
         updateCartCount();
 
-        btn.textContent = '✓ Добавлено';
+        btn.textContent = 'Добавлено';
         btn.style.background = '#16a34a';
         setTimeout(() => {
             btn.textContent = 'Купить';
