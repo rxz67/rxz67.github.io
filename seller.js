@@ -37,7 +37,6 @@ document.getElementById('productImage').addEventListener('change', function() {
     reader.readAsDataURL(file);
 });
 
-
 document.getElementById('addProductBtn').addEventListener('click', () => {
     const name  = document.getElementById('productName').value.trim();
     const price = parseInt(document.getElementById('productPrice').value);
@@ -55,14 +54,12 @@ document.getElementById('addProductBtn').addEventListener('click', () => {
     }
 
     err.textContent = '';
-
     const stock = getStock();
 
     if (file) {
         const reader = new FileReader();
         reader.onload = function(e) {
-            const image = e.target.result;
-            saveProduct(stock, name, price, qty, image);
+            saveProduct(stock, name, price, qty, e.target.result);
         };
         reader.readAsDataURL(file);
     } else {
@@ -80,10 +77,24 @@ function saveProduct(stock, name, price, qty, image) {
     }
     saveStock(stock);
 
-    document.getElementById('productName').value  = '';
-    document.getElementById('productPrice').value = '';
-    document.getElementById('productQty').value   = '';
-    document.getElementById('productImage').value = '';
+    // Получаем название магазина продавца
+    const users           = JSON.parse(localStorage.getItem('sm_users') || '[]');
+    const currentUsername = localStorage.getItem('sm_current');
+    const currentUser     = users.find(u => u.username === currentUsername);
+    const sellerName      = currentUser ? currentUser.name : currentUsername;
+
+    // Сохраняем в sm_products для каталога
+    const sellerProducts  = JSON.parse(localStorage.getItem('sm_products') || '[]');
+    const existingProduct = sellerProducts.find(p => p.name === name);
+    if (!existingProduct) {
+        sellerProducts.push({ name, price, qty, image, seller: sellerName });
+        localStorage.setItem('sm_products', JSON.stringify(sellerProducts));
+    }
+
+    document.getElementById('productName').value      = '';
+    document.getElementById('productPrice').value     = '';
+    document.getElementById('productQty').value       = '';
+    document.getElementById('productImage').value     = '';
     document.getElementById('imagePreview').innerHTML = '';
 
     renderStock();
